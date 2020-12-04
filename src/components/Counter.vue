@@ -8,9 +8,9 @@
       </v-row>
       <v-row>
         <v-col align="center">
-          <h1 v-if="statusCount && !statusPause">Time Remaining</h1>
-          <h1 v-if="statusFinish">BOOOM!!!!!</h1>
-          <h1 v-if="statusPause">Time Remaining <br> Paused! </h1>
+          <h3 v-if="statusCount && !statusPause">Time Remaining</h3>
+          <h3 v-if="statusFinish">BOOOM!!!!!</h3>
+          <h3 v-if="statusPause">Time Remaining <br> Paused! </h3>
         </v-col>
       </v-row>
       <v-row>
@@ -99,7 +99,7 @@ export default {
       }
       this.displayMinutes = this.formatNum(this.menit)
       this.displayHours = this.formatNum(this.jam)
-      this.detik = this.formatNum(this.detik)
+      this.displaySeconds = this.formatNum(this.detik)
     },
     tambahDetik(){
       if (this.detik < 59) {
@@ -110,7 +110,7 @@ export default {
       }
       this.displayMinutes = this.formatNum(this.menit)
       this.displayHours = this.formatNum(this.jam)
-      this.detik = this.formatNum(this.detik)
+      this.displaySeconds = this.formatNum(this.detik)
     },
     kurangJam(){
       if(this.jam > 0){
@@ -166,7 +166,7 @@ export default {
           this.i = 0;
           if (this.statusPause == false) {
             this.finishCountdown();
-            this.statusCount = false
+            this.statusCount = false;
           }
           return;
         }
